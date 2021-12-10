@@ -1,7 +1,9 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {},
+  state: {
+    apiURL: "https://tu-portafolio-apigateway.herokuapp.com",
+  },
   mutations: {},
   actions: {},
   modules: {},
