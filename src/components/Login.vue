@@ -4,12 +4,26 @@
     <div class="form shadow-lg">
       <h3>Iniciar sesión</h3>
       <form v-on:submit.prevent="processLogIn">
-        <input v-model="credentials.username" class="form-control" placeholder="Usuario" />
-        <input v-model="credentials.password" type="password" class="form-control" placeholder="Contraseña" />
+        <input
+          v-model="credentials.correo"
+          class="form-control"
+          placeholder="Usuario"
+        />
+        <input
+          v-model="credentials.contrasena"
+          type="password"
+          class="form-control"
+          placeholder="Contraseña"
+        />
         <p v-if="show_error" class="error">Usuario o contraseña incorrecta</p>
         <button class="btn btn-primary">
           <span v-if="!is_loading">Ingresar</span>
-          <div v-if="is_loading" class="spinner-border text-light" role="status"></div></button>
+          <div
+            v-if="is_loading"
+            class="spinner-border text-light"
+            role="status"
+          ></div>
+        </button>
       </form>
     </div>
   </div>
@@ -19,53 +33,61 @@
 import gql from "graphql-tag";
 
 export default {
-  name: "LogIn", 
+  name: "LogIn",
   data: function () {
     return {
       is_loading: false,
       show_error: false,
       credentials: {
-        username: "",
-        password: ""
-      }
-    }
+        correo: "",
+        contrasena: "",
+      },
+    };
   },
   methods: {
     processLogIn: async function () {
       this.is_loading = true;
-      console.log("Entra")
-      await this.$apollo.mutate({
-        mutation: gql`
-          mutation LogIn($credentials: LoginInput!) {
-            logIn(credentials: $credentials) {
-              key
+      console.log("Entra");
+      console.log(this.$apollo);
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation ($credentials: CredentialsInput!) {
+              login(credentials: $credentials) {
+                exitoso
+                mensajeError
+                body
+              }
             }
-          }
-        `,
-        variables: {
-          credentials: this.credentials
-        }
-      })
-      .then((result) => {
-        console.log(result)
-        let dataLogin = {
-          username: this.credentials.username,
-          token: result.data.logIn.key
-        }
-        this.is_loading = false;
-        this.$emit("completedLogin", dataLogin);
-      })
-      .catch((error) => {
-        console.log(error)
-        this.is_loading = false;
-        this.show_error = true;
-      })
-    }
+          `,
+          variables: {
+            credentials: this.credentials,
+          },
+        })
+        .then((result) => {
+          console.log(result);
+          let data = {
+            username: this.credentials.username,
+            token: result.data.login.body,
+          };
+          this.is_loading = false;
+          this.is_auth = true;
+          localStorage.setItem("is_auth", true);
+          localStorage.setItem("token", data.token);
+          localStorage.setItem("username", data.username);
+          this.$router.push({ name: "update" });
+        })
+        .catch((error) => {
+          console.log(error);
+          this.is_loading = false;
+          this.show_error = true;
+        });
+    },
   },
   created: function () {},
 };
 </script>
-    
+
 <style>
 .background {
   height: calc(100vh - 57px);
@@ -90,18 +112,18 @@ export default {
   margin-bottom: 25px;
 }
 
-.form h3{
-    text-align: center;
-    margin-bottom: 30px;
+.form h3 {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.error{
+.error {
   color: red;
   font-size: 15px;
 }
 
-@media (max-width: 500px){
-  .form{
+@media (max-width: 500px) {
+  .form {
     padding: 40px 25px;
     width: 85%;
   }

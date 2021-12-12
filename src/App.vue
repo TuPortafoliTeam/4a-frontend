@@ -2,44 +2,40 @@
   <router-view />
 </template>
 <script>
-
 export default {
   name: "App", // NOmbre del componente
   data: function () {
     return {
-      is_auth: false
-    }
+      is_auth: false,
+    };
   }, // Variables que se usan
   methods: {
-    verifyAuth(){ 
+    verifyAuth() {
       this.is_auth = localStorage.getItem("is_auth") || false;
-      if(this.is_auth){
-        this.loadTransactions();
-      }else{
-        this.loadLogIn()
+      if (!this.is_auth) {
+        this.loadLogIn();
       }
     },
     loadLogIn() {
-      this.$router.push({ name: "logIn" });
+      this.$router.push({ name: "login" });
     },
     completedLogin(data) {
       this.is_auth = true;
-      localStorage.setItem('is_auth', true)
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('username', data.username)
-      this.verifyAuth()
+      localStorage.setItem("is_auth", true);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("username", data.username);
+      this.verifyAuth();
     },
-    signOut(){
+    signOut() {
       this.loadLogIn();
       this.is_auth = false;
       localStorage.clear();
-    }
+    },
   },
   created: function () {
     this.verifyAuth();
   },
-}
+};
 </script>
-
 
 <style></style>
