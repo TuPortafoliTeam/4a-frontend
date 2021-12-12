@@ -5,8 +5,8 @@
         <img src="./assets/tuportafolioLogo.png" />
       </div>
       <div class="buttons">
-        <button>Ingresar</button>
-        <button>Registro</button>
+        <button v-on:click="loadLogIn">Ingresar</button>
+        <button v-on:click="loadSignUp">Registro</button>
         <button>Cerrar Sesión</button>
       </div>
     </header>
