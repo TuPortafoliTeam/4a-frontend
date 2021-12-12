@@ -1,23 +1,23 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import Login from "./components/Login.vue";
-import App from './App.vue'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import App from "./App.vue"
+import SignUp from "./components/SignUp.vue"
 
 const routes = [
   {
-    path: '/',
-    name: 'root',
-    component: App
+    path: "/",
+    name: "App",
+    component: App,
   },
   {
-    path: "/login",
-    name: "login",
-    component: Login,
-  },
-];
+    path: "/signUp",
+    name: "signUp",
+    component: SignUp,
+  }
+]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router
