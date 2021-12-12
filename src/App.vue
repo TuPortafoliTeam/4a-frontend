@@ -1,5 +1,40 @@
 <template>
-  <router-view />
+  <div id="app">
+    <header class="header shadow">
+      <div>
+        <img src="./assets/tuportafolioLogo.png" />
+      </div>
+      <div class="buttons">
+        <button>Ingresar</button>
+        <button>Registro</button>
+        <button>Cerrar Sesión</button>
+      </div>
+    </header>
+    <div class="body"><router-view></router-view></div>
+    <footer class="footer">
+      <div class="p1"><p>Desarrollado por:</p></div>
+      <div class="p1">
+        <p>Jaider Andrés Pinto Pinto</p>
+        <p>jaanpipi11@gmail.com</p>
+      </div>
+      <div class="p1">
+        <p>Cristhian Leonardo Torres Bernal</p>
+        <p>leoleo981113@gmail.com</p>
+      </div>
+      <div class="p1">
+        <p>Henry Niño</p>
+        <p>ing.davidnino@gmail.com</p>
+      </div>
+      <div class="p1">
+        <p>Jorge Gutierrez Palacios</p>
+        <p>gutierrez.jorge681@gmail.com</p>
+      </div>
+      <div class="p1">
+        <p>Sebastian Muñoz</p>
+        <p>SEBASRS22@gmail.com</p>
+      </div>
+    </footer>
+  </div>
 </template>
 <script>
 export default {
@@ -19,13 +54,6 @@ export default {
     loadLogIn() {
       this.$router.push({ name: "login" });
     },
-    completedLogin(data) {
-      this.is_auth = true;
-      localStorage.setItem("is_auth", true);
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("username", data.username);
-      this.verifyAuth();
-    },
     signOut() {
       this.loadLogIn();
       this.is_auth = false;
@@ -38,4 +66,52 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.body {
+  flex-grow: 1;
+  overflow: auto;
+  min-height: 2em;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ccc7b9;
+  padding: 10px;
+}
+.header img {
+  width: auto;
+  height: 100px;
+}
+body {
+  margin: 0;
+  font-family: "Times New Roman";
+}
+.header button {
+  background: transparent;
+  color: #864241;
+  border: none;
+}
+.footer {
+  flex-shrink: 0;
+  width: 100%;
+  background-color: #ccc7b9;
+  padding: 10px;
+}
+.p1 {
+  line-height: 0;
+  display: flex;
+  justify-content: space-between;
+  color: #864241;
+  font-size: 12px;
+}
+</style>

@@ -11,6 +11,7 @@ import {
 import { createApolloProvider } from "@vue/apollo-option";
 import { setContext } from "apollo-link-context";
 import { onError } from "apollo-link-error";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
