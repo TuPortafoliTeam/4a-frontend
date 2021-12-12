@@ -5,11 +5,12 @@
         <img src="./assets/tuportafolioLogo.png" />
         </div>
       <div class="buttons">
-        <button>Ingresar</button>
-        <button>Registro</button>
+        <button v-on:click="loadLogIn">Ingresar</button>
+        <button v-on:click="loadSignUp">Registro</button>
         <button>Cerrar Sesión</button>
       </div>
     </div>
+    <div><router-view></router-view></div>
     <div class="footer">
       <div class="p1"><p>Desarrollado por:  </p></div>
       <div class="p1"><p>Jaider Andrés Pinto Pinto</p><p>jaanpipi11@gmail.com</p></div>
@@ -18,7 +19,6 @@
       <div class="p1"><p>Jorge Gutierrez Palacios</p><p>gutierrez.jorge681@gmail.com</p></div>
       <div class="p1"><p>Sebastian Muñoz</p><p>SEBASRS22@gmail.com</p></div>
     </div>
-    <div><router-view></router-view></div>
   </div>
   
 </template>
@@ -66,8 +66,10 @@
     color: #864241;
     border: none;
   }
+  .header button {
+    cursor: pointer;
+  }
   .footer{
-    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -79,7 +81,7 @@
     display: flex;
     justify-content: space-between;
     color: #864241;
-    font-size: 12px;
+    font-size: 10px;
   }
 
 

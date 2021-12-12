@@ -2,13 +2,15 @@
     <div>
         <div class="background"></div>
         <div class="inputs">
-            <p>Nombre de Usuario</p>
-            <input type="text">
-            <p>Contraseña</p>
-            <input type="password">
-            <p>Confirmar Contraseña</p>
-            <input type="password">
-            <button>Registrarse</button>
+            <form>
+                <p>Nombre de Usuario</p>
+                <input v-model="credentials.username" type="text">
+                <p>Contraseña</p>
+                <input v-model="credentials.password1" type="password">
+                <p>Confirmar Contraseña</p>
+                <input v-model="credentials.password2" type="password">
+                <button>Registrarse</button>
+            </form>
         </div>
     </div>
 </template>
@@ -16,7 +18,15 @@
 <script>
     export default{
         name: "SignUp",
-        data: function () {},
+        data: function () {
+            return{
+                credentials:{
+                    username:"",
+                    password1:"",
+                    password2:""
+                }
+            }
+        },
         methods: {},
         created: function () {},
     }
@@ -24,9 +34,8 @@
 
 <style>
     .background{
-        position: fixed;
         background-color: #000022;
-        height: calc(100vh - 235px);
+        height: calc(100vh - 253px);
         width: 100vw;
     }
     .inputs{
@@ -40,6 +49,10 @@
         background-color: #864241;
         padding: 48px 24px;
     
+    }
+    .inputs form{
+        display: flex;
+        flex-direction: column;
     }
     .inputs p{
         color: #EAF9D9;
@@ -66,5 +79,6 @@
         transform: translate(-50%, -50%);
         margin: 16px 0px 0px 0px;
         color: #EAF9D9;
+        cursor: pointer;
     }
 </style>
