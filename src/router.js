@@ -1,5 +1,6 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import App from "./App.vue"
+import { createRouter, createWebHashHistory } from "vue-router";
+import Login from "./components/Login.vue";
+import App from "./App.vue";
 import SignUp from "./components/SignUp.vue"
 
 const routes = [
