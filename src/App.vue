@@ -30,6 +30,9 @@
         methods: {
           loadSignUp(){
             this.$router.push({name: "signUp"})
+          },
+          loadLogIn(){
+            this.$router.push({name: "logIn"})
           }
         },
         created: function () {
