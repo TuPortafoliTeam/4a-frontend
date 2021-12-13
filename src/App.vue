@@ -10,7 +10,7 @@
         <button>Cerrar Sesión</button>
       </div>
     </div>
-    <div><router-view></router-view></div>
+    <div><router-view v-on:completedSignUp="loadLogIn"></router-view></div>
     <div class="footer">
       <div class="p1"><p>Desarrollado por:  </p></div>
       <div class="p1"><p>Jaider Andrés Pinto Pinto</p><p>jaanpipi11@gmail.com</p></div>
@@ -36,7 +36,7 @@
           }
         },
         created: function () {
-          this.loadSignUp();
+          this.loadLogIn();
         },
     }
 </script>
