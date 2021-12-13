@@ -226,14 +226,10 @@ export default {
 
   methods: {
     addWork: function () {
-      this.userDetail.profile.trabajo = Array(this.userDetail.profile.trabajo);
       this.userDetail.profile.trabajo.push({});
     },
 
     addFormation: function () {
-      this.userDetail.profile.formacion = Array(
-        this.userDetail.profile.formacion
-      );
       this.userDetail.profile.formacion.push({});
     },
 
@@ -285,9 +281,11 @@ export default {
           },
         })
         .then((result) => {
+          this.is_loading = false;
           logged = true;
         })
         .catch((error) => {
+          this.is_loading = false;
           console.log(error);
         });
       if (!logged) {

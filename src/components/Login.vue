@@ -100,7 +100,7 @@ export default {
 
 .form {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   background-color: white;
   transform: translate(-50%, -50%);

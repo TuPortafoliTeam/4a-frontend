@@ -10,8 +10,9 @@
         <button v-on:click="signOut">Cerrar Sesión</button>
       </div>
     </header>
-    <div><router-view v-on:completedSignUp="loadLogIn"></router-view></div>
-    <div class="body"><router-view></router-view></div>
+    <div class="body" v-on:completedSignUp="loadLogIn">
+      <router-view></router-view>
+    </div>
     <footer class="footer">
       <div class="p1"><p>Desarrollado por:</p></div>
       <div class="p1">
@@ -60,9 +61,9 @@ export default {
       localStorage.clear();
       this.loadLogIn();
     },
-    loadSignUp(){
-      this.$router.push({name: "signUp"})
-    }
+    loadSignUp() {
+      this.$router.push({ name: "signUp" });
+    },
   },
   created: function () {
     this.verifyAuth();
