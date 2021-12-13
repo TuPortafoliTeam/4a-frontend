@@ -1,7 +1,9 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import Login from "./components/Login.vue";
 import App from "./App.vue";
-import SignUp from "./components/SignUp.vue"
+import UpdateProfile from "@/views/UpdateProfile.vue";
+import Home from "@/views/Home.vue";
+import SignUp from "./components/SignUp.vue";
 
 const routes = [
   {
@@ -10,20 +12,31 @@ const routes = [
     component: App,
   },
   {
+    path: "/login",
+    name: "login",
+    component: Login,
+  },
+  {
+    path: "/home",
+    name: "home",
+    component: Home,
+  },
+  {
     path: "/signUp",
     name: "signUp",
     component: SignUp,
   },
   {
-    path: "/logIn",
-    name: "logIn",
-    component: Login,
-  }
-]
+    path: "/actualizarPortafolio",
+    name: "update",
+    component: UpdateProfile,
+    props: true,
+  },
+];
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
-})
+  history: createWebHistory(),
+  routes,
+});
 
-export default router
+export default router;
