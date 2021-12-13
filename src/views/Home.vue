@@ -12,6 +12,17 @@
           <span class="bt"> Actualizar Datos de Potafolio</span>
         </div>
       </div>
+      <div
+        class="col col-md-4 col-8 shadow my-3 p-0 btnTP"
+        v-on:click="goCover"
+      >
+        <div class="card-body">
+          <div class="iconTP">
+            <i class="bi bi-envelope-check-fill"></i>
+          </div>
+          <span class="bt">Crear Cover Letter</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -63,6 +74,11 @@ export default {
     goUpdate: function () {
       this.$router.push({
         name: "update",
+      });
+    },
+    goCover: function () {
+      this.$router.push({
+        name: "coverCreate",
       });
     },
   },

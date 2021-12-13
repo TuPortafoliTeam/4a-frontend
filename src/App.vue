@@ -32,7 +32,7 @@
         <p>gutierrez.jorge681@gmail.com</p>
       </div>
       <div class="p1">
-        <p>Sebastian Muñoz</p>
+        <p>Sebastian Rincon</p>
         <p>SEBASRS22@gmail.com</p>
       </div>
     </footer>

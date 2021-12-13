@@ -1,7 +1,13 @@
 <template>
-  <div class="update container-fluid text-center" v-if="!begin">
-    <button v-on:click="able" class="btn btn-primary">
+  <div
+    class="update container-fluid text-center row justify-content-around pt-3 m-0"
+    v-if="!begin"
+  >
+    <button v-on:click="able" class="btn btn-primary col-md-2 col-4">
       Iniciar Actualizacion
+    </button>
+    <button class="btn btn-primary col-md-2 col-4" v-on:click="goHome">
+      Volver
     </button>
   </div>
   <div class="update container-fluid" v-if="begin">
@@ -158,14 +164,17 @@
         </div>
       </div>
     </div>
-    <div class="text-center">
-      <button class="btn btn-primary" v-on:click="update">
+    <div class="text-center row justify-content-around m-3">
+      <button class="btn btn-primary col-md-2 col-4" v-on:click="update">
         <span v-if="!is_loading">Actualizar Datos</span>
         <div
           v-if="is_loading"
           class="spinner-border text-light"
           role="status"
         ></div>
+      </button>
+      <button class="btn btn-primary col-md-2 col-4" v-on:click="goHome">
+        Volver
       </button>
     </div>
   </div>
@@ -341,6 +350,11 @@ export default {
           alert("Error en la actualizacion");
           this.is_loading = false;
         });
+    },
+    goHome: function () {
+      this.$router.push({
+        name: "home",
+      });
     },
   },
 

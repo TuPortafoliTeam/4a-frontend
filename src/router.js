@@ -7,7 +7,6 @@ import SignUp from "./components/SignUp.vue";
 import Cover from "./components/Cover.vue";
 import CoverCreate from "./components/CoverCreate.vue";
 
-
 const routes = [
   {
     path: "/",
@@ -44,7 +43,7 @@ const routes = [
     path: "/covercreate",
     name: "coverCreate",
     component: CoverCreate,
-  }
+  },
 ];
 
 const router = createRouter({
