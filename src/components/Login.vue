@@ -56,7 +56,10 @@ export default {
               login(credentials: $credentials) {
                 exitoso
                 mensajeError
-                body
+                body {
+                  id
+                  token
+                }
               }
             }
           `,
@@ -68,14 +71,16 @@ export default {
           console.log(result);
           let data = {
             username: this.credentials.username,
-            token: result.data.login.body,
+            token: result.data.login.body.token,
+            id: result.data.login.body.id,
           };
           this.is_loading = false;
           this.is_auth = true;
           localStorage.setItem("is_auth", true);
+          localStorage.setItem("id", data.id);
           localStorage.setItem("token", data.token);
           localStorage.setItem("username", data.username);
-          this.$router.push({ name: "update" });
+          this.$router.push({ name: "home" });
         })
         .catch((error) => {
           console.log(error);
@@ -100,7 +105,7 @@ export default {
   background-color: white;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-  padding: 80px 50px;
+  padding: 20px 50px;
 }
 
 .form form {

@@ -7,7 +7,7 @@
       <div class="buttons">
         <button v-on:click="loadLogIn">Ingresar</button>
         <button v-on:click="loadSignUp">Registro</button>
-        <button>Cerrar Sesión</button>
+        <button v-on:click="signOut">Cerrar Sesión</button>
       </div>
     </header>
     <div class="body"><router-view></router-view></div>
@@ -55,9 +55,9 @@ export default {
       this.$router.push({ name: "login" });
     },
     signOut() {
-      this.loadLogIn();
       this.is_auth = false;
       localStorage.clear();
+      this.loadLogIn();
     },
   },
   created: function () {

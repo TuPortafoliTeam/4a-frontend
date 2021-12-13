@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Login from "./components/Login.vue";
 import App from "./App.vue";
 import UpdateProfile from "@/views/UpdateProfile.vue";
+import Home from "@/views/Home.vue";
 import SignUp from "./components/SignUp.vue";
 
 const routes = [
@@ -16,6 +17,11 @@ const routes = [
     component: Login,
   },
   {
+    path: "/home",
+    name: "home",
+    component: Home,
+  },
+  {
     path: "/signUp",
     name: "signUp",
     component: SignUp,
@@ -24,6 +30,7 @@ const routes = [
     path: "/actualizarPortafolio",
     name: "update",
     component: UpdateProfile,
+    props: true,
   },
 ];
 
