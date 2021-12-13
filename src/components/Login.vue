@@ -102,7 +102,7 @@ export default {
   position: absolute;
   top: 60%;
   left: 50%;
-  background-color: white;
+  background-color: #ccc7b9;
   transform: translate(-50%, -50%);
   border-radius: 10px;
   padding: 20px 50px;

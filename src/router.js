@@ -4,6 +4,9 @@ import App from "./App.vue";
 import UpdateProfile from "@/views/UpdateProfile.vue";
 import Home from "@/views/Home.vue";
 import SignUp from "./components/SignUp.vue";
+import Cover from "./components/Cover.vue";
+import CoverCreate from "./components/CoverCreate.vue";
+
 
 const routes = [
   {
@@ -32,6 +35,16 @@ const routes = [
     component: UpdateProfile,
     props: true,
   },
+  {
+    path: "/cover",
+    name: "cover",
+    component: Cover,
+  },
+  {
+    path: "/covercreate",
+    name: "coverCreate",
+    component: CoverCreate,
+  }
 ];
 
 const router = createRouter({
