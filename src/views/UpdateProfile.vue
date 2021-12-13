@@ -160,7 +160,12 @@
     </div>
     <div class="text-center">
       <button class="btn btn-primary" v-on:click="update">
-        Actualizar Datos
+        <span v-if="!is_loading">Actualizar Datos</span>
+        <div
+          v-if="is_loading"
+          class="spinner-border text-light"
+          role="status"
+        ></div>
       </button>
     </div>
   </div>

@@ -1,8 +1,18 @@
 <template>
   <div class="container-fluid text-center">
-    <button v-on:click="goUpdate" class="btn btn-primary">
-      Actualizar Datos de Potafolio
-    </button>
+    <div class="row justify-content-around">
+      <div
+        class="col col-md-4 col-8 shadow my-3 p-0 btnTP"
+        v-on:click="goUpdate"
+      >
+        <div class="card-body">
+          <div class="iconTP">
+            <i class="bi bi-person-plus-fill"></i>
+          </div>
+          <span class="bt"> Actualizar Datos de Potafolio</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -101,4 +111,21 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.iconTP {
+  font-size: 150px;
+}
+
+.btnTP {
+  background-color: #b3504e;
+}
+
+.btnTP:hover {
+  background-color: #864241;
+  cursor: pointer;
+}
+
+.bt {
+  font-size: 30px;
+}
+</style>
